@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.routers import admin, chat
+from backend.routers import admin, chat, voice
 
 app = FastAPI(
     title="IGCSE Math Tutor API",
@@ -19,6 +19,7 @@ app.add_middleware(
 
 app.include_router(chat.router)
 app.include_router(admin.router)
+app.include_router(voice.router)
 
 
 @app.get("/health")

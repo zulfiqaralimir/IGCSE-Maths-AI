@@ -1,4 +1,5 @@
 import type { Message, SimilarQuestion } from '@/lib/types'
+import AudioButton from './AudioButton'
 import DiagramCard from './DiagramCard'
 import SimilarQuestions from './SimilarQuestions'
 import StepBreakdown from './StepBreakdown'
@@ -59,10 +60,8 @@ export default function MessageBubble({ message, onSelectSimilar }: Props) {
           {/* Diagram */}
           {data?.diagram_url && <DiagramCard url={data.diagram_url} />}
 
-          {/* Audio button (placeholder) */}
-          {data?.audio_url && (
-            <audio controls src={data.audio_url} className="mt-3 w-full h-8" />
-          )}
+          {/* Voice — on-demand, non-blocking */}
+          <AudioButton text={message.content} />
         </div>
 
         {/* Similar questions */}
